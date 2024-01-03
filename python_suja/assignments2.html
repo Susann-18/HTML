@@ -1,0 +1,229 @@
+<!--1 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>String Matcher</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        form {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        p {
+            color: aquamarine;
+        }
+        .error {
+            color: brown;
+        }
+        .success {
+            color: green; 
+        }
+    </style>
+</head>
+<body>
+    <h1>String Matcher</h1>
+    <form onsubmit="return validateForm()">
+        <label for="input_string">Enter a string:</label>
+        <input type="text" id="input_string" name="input_string">
+        <button type="submit">Check</button>
+    </form>
+    <p id="result"></p>
+    <script>
+        function validateForm() {
+            var inputString = document.getElementById('input_string').value;
+            var resultElement = document.getElementById('result');
+            if (/ab*/.test(inputString)) {
+                resultElement.textContent = 'The string "' + inputString + '" matches the pattern.';
+                resultElement.className = 'success';
+            } else {
+                resultElement.textContent = 'The string "' + inputString + '" does not match the pattern.';
+                resultElement.className = 'error';
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!-- 2
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Validator</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        form {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        p {
+            color: aquamarine;
+        }
+        .error {
+            color: brown;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Character Validator</h1>
+    <form onsubmit="return validateForm()">
+        <label for="input_string">Enter a string:</label>
+        <input type="text" id="input_string" name="input_string">
+        <button type="submit">Check</button>
+    </form>
+    <p id="result"></p>
+    <script>
+        function validateForm() {
+            var inputString = document.getElementById('input_string').value;
+            var resultElement = document.getElementById('result');
+
+            
+            if (/^[a-zA-Z0-9]+$/.test(inputString)) {
+                resultElement.textContent = 'The string "' + inputString + '" contains only the allowed characters.';
+                resultElement.className = 'success';
+            } else {
+                resultElement.textContent = 'The string "' + inputString + '" contains invalid characters.';
+                resultElement.className = 'error';
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!--3
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Validator</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        form {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        p {
+            color: aquamarine;
+        }
+        .error {
+            color: brown;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Digit Validator</h1>
+    <form onsubmit="return validateForm()">
+        <label for="input_string">Enter a string:</label>
+        <input type="text" id="input_string" name="input_string">
+        <button type="submit">Check</button>
+    </form>
+    <p id="result"></p>
+    <script>
+        function validateForm() {
+            var inputString = document.getElementById('input_string').value;
+            var resultElement = document.getElementById('result');
+
+           
+            if (/^[0-9]{1,6}$/.test(inputString)) {
+                resultElement.textContent = 'The string "' + inputString + '" meets the conditions.';
+                resultElement.className = 'success';
+            } else {
+                resultElement.textContent = 'The string "' + inputString + '" does not meet the conditions.';
+                resultElement.className = 'error';
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!-- 6
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Validation</title>
+  <script>
+    function validatePassword() {
+      var password = document.getElementById("password").value;
+
+      
+      var lowercaseRegex = /[a-z]/;
+      var uppercaseRegex = /[A-Z]/;
+      var numberRegex = /[0-9]/;
+      var specialCharRegex = /[$#@]/;
+
+    
+      if (!lowercaseRegex.test(password)) {
+        alert("Password must contain at least 1 lowercase letter [a-z]");
+        return false;
+      }
+
+      if (!uppercaseRegex.test(password)) {
+        alert("Password must contain at least 1 uppercase letter [A-Z]");
+        return false;
+      }
+
+      if (!numberRegex.test(password)) {
+        alert("Password must contain at least 1 number [0-9]");
+        return false;
+      }
+
+      if (!specialCharRegex.test(password)) {
+        alert("Password must contain at least 1 special character from [$#@]");
+        return false;
+      }
+
+      if (password.length < 6 || password.length > 12) {
+        alert("Password length must be between 6 and 12 characters");
+        return false;
+      }
+
+      alert("Password is valid!");
+      return true;
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Password Validation</h2>
+
+  <form onsubmit="return validatePassword()">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>
+
+
+ -->
